@@ -12,16 +12,19 @@ erDiagram
         int 予約者ID PK
         string 名前
         string 貸出券番号
-        string 連絡先
-        int 連絡方法ID FK
+        int 連絡先ID FK
     }
 
     受取地点 {
         int 受取地点ID PK
+        string 図書館名
+        string みどり号ステーション
     }
 
-    連絡方法 {
-        int 連絡方法ID PK
+    連絡先 {
+        int 連絡先ID PK
+        int 予約者ID FK
+        string 連絡先
     }
 
     書籍 {
@@ -36,5 +39,5 @@ erDiagram
     予約者 ||--|{ 予約 : ""
     書籍 ||--|{ 予約 : ""
     予約 ||--|| 受取地点 : ""
-    予約者 ||--|| 連絡方法 : ""
+    予約者 ||--|| 連絡先 : ""
 ```
